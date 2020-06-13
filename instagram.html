@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/35a26457b8.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            margin 0;
+            font-family: 'Hind Madurai', sans-serif;
+            background-color: #FAFAFA;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        header {
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #D4D4D4;
+            height: 60px;
+            background-color: white;
+        }
+        .logo img {
+            height: 50px;
+        }
+        
+        .search {
+            border: 1px solid #D4D4D4;
+            width: 250px;
+            height: 33px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(250,250,250);
+            border-radius: 5px;
+            margin: 50px;
+        }
+
+        .search input {
+            box-sizing: content-box;
+            border: 0;
+            display: inline;
+            background-color: rgb(250,250,250);
+            box-align: stretch;
+            align-items: stretch;
+        }
+        .search i {
+            color: #C2C2C2;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .search span {
+            font-size: 18px;
+            color: #AFAFAF;
+            font-weight: lighter;
+            margin-left: 8px;
+        }
+
+        .menu figure {
+            margin: 0;
+        }
+
+        main {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-info {
+            height: 330px;
+            border-bottom: 1px solid #D4D4D4;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+        }
+        .profile-picture {
+            height: 210px;
+            width: 200;
+        }
+        .profile-description {
+            margin-left: 70px;
+            color: #333333;
+        }
+        .profile-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            height: 40px;
+            margin: 20px 0;
+        }
+        .profile-options h1, button {
+            margin-right: 20px;
+        }
+        .profile-options h1 {
+            font-weight: lighter;
+            font-size: 35px;
+        }
+        .profile-options button {
+            border: 1px solid #D4D4D4;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: #FAFAFA;
+            font-size: 17px;
+            font-weight: bolder;
+        }
+        .profile-numbers {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .profile-numbers p {
+            font-size: 22px;
+            margin-right: 50px;
+        }
+        .profile-numbers strong {
+            font-weight: bold;
+        }
+        .profile-person h4 {
+            font-size: 22px;
+            margin: 0;
+        }
+        .profile-person p {
+            font-size: 20px;
+            margin: 0;
+        }
+        .profile-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+        }
+        .post-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 293px));
+            justify-content: center;
+            grid-gap: 28px;
+        }
+        .post {
+            cursor: pointer;
+            position: relative;
+            display: block;
+        }
+        .post-image {
+            margin: 0;
+        }
+        .post-image img {
+            width: 100%;
+            vertical-align: top;
+        }
+        .post-overlay {
+            background: rgba(0,0,0,.4);
+            position:absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .post:hover .post-overlay {
+            display: flex; 
+        }
+        .post-overlay span {
+            font-family: 'Hind Madurai', sans-serif;
+            margin: 0;
+           
+
+        }
+        .post-likes,
+        .post-comments {
+            width: 40px;
+            margin: 5px;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            font-size: 22px;
+        }
+
+        .fa-heart,
+        .fa-comment {
+            font-size: 25px;
+        }
+
+        .fa-comment {
+            margin-left: 35px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .post-list {
+                grid-gap: 3px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <figure class="logo">
+                <img src='src/logo.png' alt='Logo de Instagram'>
+            </figure>
+            <div class="search">
+                <i class="fas fa-search"></i>
+                <span>Buscar</span>
+            </div>
+            <figure class="menu">
+                <img src='src/menu.png' alt='Logo de Instagram'>
+            </figure>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-info">
+            <img class="profile-picture" src="src/profile-picture.png" alt="profile-picture">
+            <div class="profile-description">
+                <div class="profile-options">
+                    <h1>marie.gao</h1>
+                    <button>Editar perfil</button>
+                    <img src="src/config-icon.png" alt="configuracion">
+                </div>
+                <div class="profile-numbers">
+                    <p><strong>646</strong> publicaciones</p>
+                    <p><strong>626</strong> seguidores</p>
+                    <p><strong>3,226</strong> seguidos</p>
+                </div>
+                <div class="profile-person">
+                    <h4>Marie Garcia</h4>
+                    <p>I'd like to travel the world to keep learning and growing.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="profile-menu">
+            <img src='src/profile-menu.png' alt='Logo de Instagram'>
+        </section>
+    
+        <section class="post-list">
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/1.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">151</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">8</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/2.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">124</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">10</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/3.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">187</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">3</span></i>
+                </p>
+            </span>
+          </a>
+    
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/4.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">194</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">11</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/5.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">156</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">4</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/6.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">143</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">7</span></i>
+                </p>
+            </span>
+          </a>
+    
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/7.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">188</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">5</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/8.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">137</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">8</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/9.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">120</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">12</span></i>
+                </p>
+            </span>
+          </a>
+    
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/10.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">193</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">4</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/11.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">115</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">6</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/12.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">156</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">7</span></i>
+                </p>
+            </span>
+          </a>
+    
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/13.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">178</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">9</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/14.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">184</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">3</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/15.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">124</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">11</span></i>
+                </p>
+            </span>
+          </a>
+    
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/16.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">145</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">10</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/17.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">198</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">4</span></i>
+                </p>
+            </span>
+          </a>
+          <a href="" class="post">
+            <figure class="post-image">
+                <img src="src/18.png" alt="">
+            </figure>
+            <span class="post-overlay">
+                <p>
+                    <i class="fas fa-heart"><span class="post-likes">148</span></i>
+                    <i class="fas fa-comment"><span class="post-comments">5</span></i>
+                </p>
+            </span>
+          </a>
+          
+        </section>
+    </main>
+    
+    </body>
+</html>
